@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Zebble.Plugin.Drawing</id>
+    <version>3.1.271</version>
+    <title> Drawing for Zebble for Xamarin</title>
+    <description>Drawing plugin for Zebble for Xamarin.</description>
+    <iconUrl>https://raw.githubusercontent.com/{MyUserName}/{MyRepo}/.../Shared/Icon.png</iconUrl>
+    <authors>Mobile App Technologies Ltd</authors>
+    <owners>Mobile App Technologies Ltd</owners>
+    <projectUrl>https://github.com/Geeksltd/Zebble.Drawing</projectUrl>
+    <copyright>Copyright ©2017 | Mobile App Technologies Ltd</copyright>
+
+    <dependencies>      
+      <group targetFramework="MonoAndroid">
+        <dependency id="Zebble" version= "4.0.239"/>
+      </group>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Zebble" version= "4.0.239"/>
+      </group>
+    </dependencies>
+
+  </metadata>
+  <files>
+    <file src="..\..\lib\Zebble.Drawing.iOS.*" target="lib\Xamarin.iOS10\" />
+    <file src="..\..\lib\Zebble.Drawing.Android.*" target="lib\MonoAndroid10\" />
+    <file src="..\..\lib\Zebble.Drawing.UWP.*" target="lib\UAP10\" />
+  </files>
+</package>
