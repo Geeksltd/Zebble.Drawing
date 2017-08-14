@@ -3,8 +3,8 @@
   <metadata>
     <id>Zebble.Plugin.Drawing</id>
     <version>3.1.280</version>
-    <title> Drawing for Zebble for Xamarin</title>
-    <description>Drawing plugin for Zebble for Xamarin.</description>
+    <title> Drawing for Zebble (Xamarin)</title>
+    <description>Drawing plugin for Zebble apps.</description>
     <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.Drawing/master/Shared/Icon.png</iconUrl>
     <authors>Mobile App Technologies Ltd</authors>
     <owners>Mobile App Technologies Ltd</owners>
@@ -12,10 +12,10 @@
     <copyright>Copyright ©2017 | Mobile App Technologies Ltd</copyright>
     <dependencies>
       <group targetFramework="MonoAndroid">
-        <dependency id="Zebble" version="4.0.249"></dependency>
+        <dependency id="Zebble" version="4.1.285"></dependency>
       </group>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Zebble" version="4.0.249"></dependency>
+        <dependency id="Zebble" version="4.1.285"></dependency>
       </group>
     </dependencies>
   </metadata>
