@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Zebble.Drawing</id>
-    <version>3.1.283</version>
+    <version>3.1.284</version>
     <title> Drawing for Zebble (Xamarin)</title>
     <description>Drawing for Zebble apps.</description>
     <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.Drawing/master/Shared/Icon.png</iconUrl>
