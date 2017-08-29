@@ -41,9 +41,10 @@ namespace Zebble.Plugin
                 get => Points.ToString(" -> ");
                 set
                 {
-                    Points = value.Split(new[] { "->" }, StringSplitOptions.RemoveEmptyEntries).Trim()
-                        .Select(Point.Parse).ToConcurrentList();
+                    var items = value.Split(new[] { "->" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Trim().Select(Point.Parse);
 
+                    Points = new ConcurrentList<Point>(items);
                     Changed.Raise();
                 }
             }
