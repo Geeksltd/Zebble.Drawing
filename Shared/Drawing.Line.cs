@@ -4,6 +4,7 @@ namespace Zebble.Plugin
     {
         public class Line
         {
+            public string Id;
             public Point Start, End;
             public float Thickness = 1;
             public Color Color = Colors.Black;
