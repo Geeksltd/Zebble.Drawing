@@ -16,9 +16,9 @@ namespace Zebble.Plugin
         {
             View = view;
 
-            view.LineAdded.HandleOn(Device.UIThread, () => SetNeedsDisplay());
-            view.PolygonAdded.HandleOn(Device.UIThread, () => SetNeedsDisplay());
-            view.Cleared.HandleOn(Device.UIThread, () => SetNeedsDisplay());
+            view.LineAdded.HandleOn(Thread.UI, () => SetNeedsDisplay());
+            view.PolygonAdded.HandleOn(Thread.UI, () => SetNeedsDisplay());
+            view.Cleared.HandleOn(Thread.UI, () => SetNeedsDisplay());
         }
 
         public override void Draw(CGRect rect)
@@ -54,7 +54,7 @@ namespace Zebble.Plugin
 
         void DrawPolygon(Drawing.Polygon polygon, CGContext graph)
         {
-            polygon.Changed.HandleOn(Device.UIThread, () => SetNeedsDisplay());
+            polygon.Changed.HandleOn(Thread.UI, () => SetNeedsDisplay());
 
             //set up drawing attributes
             graph.SetLineWidth(polygon.LineThickness);

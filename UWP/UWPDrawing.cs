@@ -15,9 +15,9 @@
             Renderer = renderer;
             View = (Drawing)renderer.View;
 
-            View.LineAdded.HandleOn(Device.UIThread, l => Draw(l));
-            View.PolygonAdded.HandleOn(Device.UIThread, p => Draw(p));
-            View.Cleared.HandleOn(Device.UIThread, () => Children.Clear());
+            View.LineAdded.HandleOn(Thread.UI, l => Draw(l));
+            View.PolygonAdded.HandleOn(Thread.UI, p => Draw(p));
+            View.Cleared.HandleOn(Thread.UI, () => Children.Clear());
 
             View.Lines.Do(Draw);
             View.Polygons.Do(Draw);

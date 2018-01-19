@@ -16,9 +16,9 @@
         {
             View = view;
 
-            view.LineAdded.HandleOn(Device.UIThread, () => Invalidate());
-            view.PolygonAdded.HandleOn(Device.UIThread, () => Invalidate());
-            view.Cleared.HandleOn(Device.UIThread, () => Invalidate());
+            view.LineAdded.HandleOn(Thread.UI, () => Invalidate());
+            view.PolygonAdded.HandleOn(Thread.UI, () => Invalidate());
+            view.Cleared.HandleOn(Thread.UI, () => Invalidate());
         }
 
         protected override void OnDraw(Canvas canvas)
@@ -53,7 +53,7 @@
 
         void Draw(Drawing.Polygon polygon)
         {
-            polygon.Changed.HandleOn(Device.UIThread, () => Invalidate());
+            polygon.Changed.HandleOn(Thread.UI, () => Invalidate());
 
             if (!polygon.Points.HasMany()) return;
 
