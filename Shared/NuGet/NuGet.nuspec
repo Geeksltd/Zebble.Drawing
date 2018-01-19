@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Zebble.Drawing</id>
-    <version>3.1.286</version>
+    <version>3.1.287</version>
     <title> Drawing for Zebble (Xamarin)</title>
     <description>Drawing for Zebble apps.</description>
     <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.Drawing/master/Shared/Icon.png</iconUrl>
     <authors>Geeks Ltd</authors>
     <owners>Geeks Ltd</owners>
     <projectUrl>https://github.com/Geeksltd/Zebble.Drawing</projectUrl>
-    <copyright>Copyright ©2017 | Geeks Ltd</copyright>
+    <copyright>Copyright © 2018 Geeks Ltd - All rights reserved.</copyright>
     <dependencies></dependencies>
   </metadata>
   <files>
