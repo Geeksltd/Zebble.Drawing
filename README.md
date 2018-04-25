@@ -1,4 +1,4 @@
-[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.Drawing/master/Shared/NuGet/Icon.png "Zebble.Drawing"
+[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.Drawing/master/Shared/Icon.png "Zebble.Drawing"
 
 
 ## Zebble.Drawing
