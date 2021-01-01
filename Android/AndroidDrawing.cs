@@ -4,7 +4,8 @@
     using System.ComponentModel;
     using System.Linq;
     using Android.Graphics;
-    using Zebble.AndroidOS;
+    using Zebble.Device;
+    using Olive;
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     public class AndroidDrawing : Android.Views.View
@@ -16,9 +17,9 @@
         {
             View = view;
 
-            view.LineAdded.HandleOn(Thread.UI, () => Invalidate());
-            view.PolygonAdded.HandleOn(Thread.UI, () => Invalidate());
-            view.Cleared.HandleOn(Thread.UI, () => Invalidate());
+            view.LineAdded.HandleOn(Thread.UI, Invalidate);
+            view.PolygonAdded.HandleOn(Thread.UI, Invalidate);
+            view.Cleared.HandleOn(Thread.UI, Invalidate);
         }
 
         protected override void OnDraw(Canvas canvas)
@@ -39,11 +40,11 @@
             paint.Color = Color.Transparent;
             Result.DrawPaint(paint);
 
-            path.MoveTo(Scaler.ToDevice(line.Start.X), Scaler.ToDevice(line.Start.Y));
-            path.LineTo(Scaler.ToDevice(line.End.X), Scaler.ToDevice(line.End.Y));
+            path.MoveTo(Scale.ToDevice(line.Start.X), Scale.ToDevice(line.Start.Y));
+            path.LineTo(Scale.ToDevice(line.End.X), Scale.ToDevice(line.End.Y));
             path.Close();
 
-            paint.StrokeWidth = Scaler.ToDevice(line.Thickness);
+            paint.StrokeWidth = Scale.ToDevice(line.Thickness);
             paint.SetPathEffect(null);
             paint.Color = line.Color.Render();
             paint.SetStyle(Paint.Style.Stroke);
@@ -53,7 +54,7 @@
 
         void Draw(Drawing.Polygon polygon)
         {
-            polygon.Changed.HandleOn(Thread.UI, () => Invalidate());
+            polygon.Changed.HandleOn(Thread.UI, Invalidate);
 
             if (!polygon.Points.HasMany()) return;
 
@@ -63,16 +64,16 @@
 
                 using (var path = new Path())
                 {
-                    path.MoveTo(Scaler.ToDevice(polygon.Points.FirstOrDefault().X),
-                        Scaler.ToDevice(polygon.Points.FirstOrDefault().Y));
+                    path.MoveTo(Scale.ToDevice(polygon.Points.FirstOrDefault().X),
+                        Scale.ToDevice(polygon.Points.FirstOrDefault().Y));
 
-                    polygon.Points.Skip(1).Do(p => path.LineTo(Scaler.ToDevice(p.X), Scaler.ToDevice(p.Y)));
+                    polygon.Points.Skip(1).Do(p => path.LineTo(Scale.ToDevice(p.X), Scale.ToDevice(p.Y)));
 
                     Result.DrawPath(path, paint);
 
                     paint.SetStyle(Paint.Style.Stroke);
                     paint.Color = polygon.LineColor.Render();
-                    paint.StrokeWidth = Scaler.ToDevice(polygon.LineThickness);
+                    paint.StrokeWidth = Scale.ToDevice(polygon.LineThickness);
                     Result.DrawPath(path, paint);
                 }
             }

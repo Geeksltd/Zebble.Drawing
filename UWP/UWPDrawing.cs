@@ -1,9 +1,9 @@
 ﻿namespace Zebble.Plugin.Renderer
 {
-    using System;
     using foundation = Windows.Foundation;
     using xaml = Windows.UI.Xaml;
     using Zebble.UWP;
+    using Olive;
 
     class UWPDrawing : UWPCanvas
     {
@@ -15,8 +15,8 @@
             Renderer = renderer;
             View = (Drawing)renderer.View;
 
-            View.LineAdded.HandleOn(Thread.UI, l => Draw(l));
-            View.PolygonAdded.HandleOn(Thread.UI, p => Draw(p));
+            View.LineAdded.HandleOn(Thread.UI, Draw);
+            View.PolygonAdded.HandleOn(Thread.UI, Draw);
             View.Cleared.HandleOn(Thread.UI, () => Children.Clear());
 
             View.Lines.Do(Draw);

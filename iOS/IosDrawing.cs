@@ -6,6 +6,7 @@ namespace Zebble.Plugin
     using System.Linq;
     using CoreGraphics;
     using UIKit;
+    using Olive;
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     public class IosDrawing : UIView
@@ -16,9 +17,9 @@ namespace Zebble.Plugin
         {
             View = view;
 
-            view.LineAdded.HandleOn(Thread.UI, () => SetNeedsDisplay());
-            view.PolygonAdded.HandleOn(Thread.UI, () => SetNeedsDisplay());
-            view.Cleared.HandleOn(Thread.UI, () => SetNeedsDisplay());
+            view.LineAdded.HandleOn(Thread.UI, SetNeedsDisplay);
+            view.PolygonAdded.HandleOn(Thread.UI, SetNeedsDisplay);
+            view.Cleared.HandleOn(Thread.UI, SetNeedsDisplay);
         }
 
         public override void Draw(CGRect rect)
@@ -54,7 +55,7 @@ namespace Zebble.Plugin
 
         void DrawPolygon(Drawing.Polygon polygon, CGContext graph)
         {
-            polygon.Changed.HandleOn(Thread.UI, () => SetNeedsDisplay());
+            polygon.Changed.HandleOn(Thread.UI, SetNeedsDisplay);
 
             //set up drawing attributes
             graph.SetLineWidth(polygon.LineThickness);
